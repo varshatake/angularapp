@@ -1,0 +1,11 @@
+
+label {
+    color : rgb(247, 34, 151);
+}
+ #pressBtn{
+    background-color:lightgrey;
+} 
+input{
+    background-color: aquamarine;
+    color:darkslategray;
+}

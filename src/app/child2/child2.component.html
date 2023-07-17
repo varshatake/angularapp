@@ -1,0 +1,16 @@
+<hr>
+
+<p>child2 works!</p>
+
+
+<div>
+    <label for="uname">Username :</label>
+    <input id="uname" type="text" placeholder="Enter Username" [(ngModel)]="str" (mouseover)="disableFun()">
+</div>
+Output username : {{str}}
+
+<div>
+    <button id="pressBtn" [disabled]="isButtonClick" (click)="clearMe()">Clear</button>
+</div>
+
+

@@ -1,0 +1,28 @@
+<p>databinding works! - Example of one way data binding first type String Intrapolation</p>
+<h1>
+    {{name}}
+</h1>
+
+<!-- 2 + 2 It will convert into string litral -->
+Addition {{2 + 2}}  
+
+<!-- {{data}}  you will see output like {object,object} -->
+{{data.name}}
+
+<h3>Property binding example</h3>
+<div>
+    <img [src]="imageURL" alt="">
+</div>
+
+<div>
+    <button [disabled]="isDisabled" (click)="SaveData()">Click Me</button>
+</div>
+
+<div>
+    <input type="text" placeholder="Please enter your department" [(ngModel)] = "department">
+</div>
+
+<div>
+    {{department}}
+</div>
+
