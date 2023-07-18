@@ -1,0 +1,13 @@
+<p>data-binding works!</p>
+<ol>
+    <li >
+        <label id="user"> UserName:
+            <input type="text" placeholder="Please enter name" [(ngModel)]="username" id="name">
+        </label>
+     </li>
+    <li class="namer" >
+        {{username}}
+    </li>
+   <li > 
+<button [disabled]="username ==''" id="submit">Click Here</button></li> 
+</ol>
