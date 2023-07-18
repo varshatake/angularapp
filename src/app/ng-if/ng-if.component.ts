@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgIfComponent implements OnInit {
 
+  show:boolean =true;
+
   showActions: boolean = true;
   constructor() { }
 

@@ -1,4 +1,29 @@
+<div class="ngif">
 <p>ng-if works!</p>
-<p *ngIf="showActions">
+<!-- <p *ngIf="showActions">
     Content to render when the condition is true.
 </p>
+<p *ngIf="showActions">This is *ngIf Directive Example</p> -->
+</div>
+
+<div>This if ngIf directive</div>
+
+<button (click)="show = !show">{{show? 'hide' : 'show'}}</button>
+
+<ng-template>This is ng-template angular element</ng-template>
+
+
+<div *ngIf="showActions; else elseBlock">
+
+    Content to render when the condition is true.
+
+</div>
+
+ 
+
+<ng-template #elseBlock>
+
+    Content to render when the condition is false.
+
+</ng-template>
+
