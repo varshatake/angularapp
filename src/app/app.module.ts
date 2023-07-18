@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
 import { ChildComponent } from './child/child.component';
 import { Child2Component } from './child2/child2.component';
 import { NewchildInputComponent } from './newchild-input/newchild-input.component';
+import { NgIfComponent } from './ng-if/ng-if.component';
+import { DataBindingComponent } from './data-binding/data-binding.component';
+import { NgforComponent } from './ngfor/ngfor.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { NewchildInputComponent } from './newchild-input/newchild-input.componen
     DatabindingComponent,
     ChildComponent,
     Child2Component,
-    NewchildInputComponent
+    NewchildInputComponent,
+    NgIfComponent,
+    DataBindingComponent,
+    NgforComponent
   ],
   imports: [
     BrowserModule,
