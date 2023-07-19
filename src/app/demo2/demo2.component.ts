@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Demo2Component implements OnInit {
 
+  checkboxVisible: boolean = true;
+  
   constructor() { }
 
   ngOnInit() {

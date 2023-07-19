@@ -4,3 +4,7 @@
     text-decoration: underline;
     color: darkslategray;
 }
+
+li {
+    padding: 10px;
+}

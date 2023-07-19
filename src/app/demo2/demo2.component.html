@@ -1,1 +1,18 @@
 <p id="demo2css">demo2 works!</p>
+<input type="checkbox" (click)="checkboxVisible = !checkboxVisible">{{checkboxVisible? 'Checkbox Visible' :'Checkbox Not visible'}}
+
+<div *ngIf = "checkboxVisible; else elseBlock">
+    <ul>
+        <li><img src=".\assets\flag.png" alt="flag" width="100" height="60"></li>
+        <li><img src=".\assets\flowers.jpg" alt="flowers" width="100" height="60"></li>
+        <li><img src=".\assets\pexel.jpg" alt="pexel" width="100" height="60"></li>
+        <li><img src=".\assets\taj.jpg" alt="taj" width="100" height="60"></li>
+        <li><img src=".\assets\tree.jpg" alt="tree" width="100" height="60"></li>
+    </ul>
+</div>
+
+<ng-template #elseBlock>
+    Hello, I am Else block....
+</ng-template>
+<hr>
+<hr>
