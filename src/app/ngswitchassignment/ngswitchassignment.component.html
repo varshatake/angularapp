@@ -1,0 +1,19 @@
+<p class="h2">ngswitch Assignment</p>
+<div class="container">
+    <div class="col-md-4">
+        <select class="form-control" (change)="getPlan($event)">
+            <option value="Default">Select Plan</option>
+            <option value="free">Free</option>
+            <option value="silver">Silver</option>
+            <option value="bronze">Bronze</option>
+            <option value="gold">Gold</option>
+        </select>
+    </div>
+    <div class="col-md-12" [ngSwitch]="selectPlan">
+        <h2 class="text-success" *ngSwitchDefault>Please Select Membership plan :</h2>
+        <h2 class="text-success" *ngSwitchCase="'free'">Free</h2>
+        <h2 class="text-success" *ngSwitchCase="'silver'">Silver</h2>
+        <h2 class="text-success" *ngSwitchCase="'bronze'">Bronze</h2>
+        <h2 class="text-success" *ngSwitchCase="'gold'">Gold</h2>
+    </div>
+</div>
