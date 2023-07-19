@@ -14,6 +14,9 @@ import { NewchildInputComponent } from './newchild-input/newchild-input.componen
 import { NgIfComponent } from './ng-if/ng-if.component';
 import { DataBindingComponent } from './data-binding/data-binding.component';
 import { NgforComponent } from './ngfor/ngfor.component';
+import { NgswitchComponent } from './ngswitch/ngswitch.component';
+import { NgforassignmentComponent } from './ngforassignment/ngforassignment.component';
+import { NgswitchassignmentComponent } from './ngswitchassignment/ngswitchassignment.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { NgforComponent } from './ngfor/ngfor.component';
     NewchildInputComponent,
     NgIfComponent,
     DataBindingComponent,
-    NgforComponent
+    NgforComponent,
+    NgswitchComponent,
+    NgforassignmentComponent,
+    NgswitchassignmentComponent
   ],
   imports: [
     BrowserModule,
