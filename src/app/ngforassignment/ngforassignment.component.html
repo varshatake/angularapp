@@ -1,0 +1,41 @@
+<p>ngforassignment works!</p>
+<div>
+    <div class="title" class="h2 text-primary">
+        Course Title : {{titleofcourse}}
+    </div>
+        <div class="main">
+            <div class="tableofCourse">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th>
+                            Sr.No.
+                        </th>
+                        <th>
+                            studId
+                        </th>
+                        <th>
+                            studName
+                        </th>
+                        <th>
+                            ITCourse
+                        </th>
+                        <th>
+                            MBA
+                        </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let Itcourses of differentCourses let i = index">
+                        <td>{{i +1}}</td>
+                        <td>{{Itcourses.studId}}</td>
+                        <td>{{Itcourses.studName}}</td>
+                        <td>{{Itcourses.ITCourse}}</td>
+                        <td>{{Itcourses.MBA}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            
+            </div>
+       </div>
+</div>
