@@ -1,0 +1,18 @@
+<hr>
+
+<p class='h2'>checkbox is selected when the condition is true</p>
+
+<input type="checkbox" (change) = "onChange($event)"><span class="h2">Checkbox</span>
+
+<div *ngIf="isChecked" [ngStyle] = "{'color':colorValue,'background-color':'#FFC0CB'}" class='h2'>
+    Checkbox selected
+    <ul>
+        <li>HTML</li>
+        <li>Typescript</li>
+        <li>Angular</li>
+        <li>React</li>
+        </ul>
+</div>
+<hr>
+
+
