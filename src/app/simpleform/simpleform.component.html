@@ -1,0 +1,54 @@
+<p>simpleform works!</p>
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        
+
+        <div class="col-md-6 text-left rounded shadow py-5">   
+
+            <div class="row justify-content-center"> Login Form</div>    
+
+        <form (ngSubmit)="OnSubmit(myForm)" #myForm="ngForm">
+
+             <div class="form-group">
+
+                <label for="username">UserName</label>
+
+                <input type="text" class="form-control" id="username" name="username" ngModel placeholder="Enter username" required>
+
+             </div> 
+
+             <div class="form-group">
+
+                <label for="email">Email</label>
+
+                <input type="text" class="form-control" id="email" name="email" ngModel placeholder="Enter email address" email required>
+
+             </div>  
+
+             <div class="form-group">
+
+                <label for="course"></label>
+
+                <select class="form-control" name="course" id="course" ngModel>
+
+                    <option value="Angular">Angular</option>
+
+                    <option value="JavaScript">JavaScript</option>
+
+                    <option value="TypeScript">TypeScript</option>
+
+                </select>
+
+             </div>
+
+             <button type="submit" [disabled]="!myForm.valid" class="btn btn-success mt-2">Submit</button>
+
+        </form>
+
+    </div>
+
+    </div>
+
+</div>
