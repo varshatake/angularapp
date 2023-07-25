@@ -1,0 +1,10 @@
+.container{
+    background-image: url('/assets/lightblue.jpg');
+    background-repeat:no-repeat;
+    background-size: cover;
+} 
+
+input.ng-invalid.ng-touched {
+    border: 1.5px solid red;
+    box-shadow: 0 0 13px #ff000021;
+}

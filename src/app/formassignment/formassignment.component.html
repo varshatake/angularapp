@@ -1,0 +1,73 @@
+<p>formassignment works!</p>
+
+<div class="container h6">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-left justify-content-center shadow py-5">
+            <div class="row justify-content-center">Form</div>
+
+            <form (ngSubmit) ="submitForm(myForm)" #myForm = "ngForm">
+            <div class="form-group">
+                <label for="username">Username :</label>
+                <input type="text" class="form-control" id="username" name="username" ngModel placeholder="Enter Username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="emailid" >Email-id :</label>
+                <input type="text" class="form-control" id="emailid" name="emailid" ngModel placeholder="Enter email address" email required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender :
+                    <input type="radio" name="gender" value="Male" class="selectGender" ngModel>Male
+                    <input type="radio" name="gender" value="Female" class="selectGender" ngModel>Female
+                    <input type="radio" name="gender" value="Other" class="selectGender" ngModel>Other
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneno">Mobile No :</label>
+                <input type="number" class="form-control" id="phoneno" name="phoneno" ngModel placeholder="Enter phone no">
+            </div>
+
+            <div class="form-group">
+                <label for="birthdate">Date of Birth :</label>
+                <input type="date" class="form-control" id="birthdate" name="birthdate" ngModel>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address :</label>
+                <textarea class="form-control" id="address" name="address" ngModel placeholder="Write your Address here"></textarea>
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="courselist">Select Courses :</label>
+                <select name="courselist" class="form-control" ngModel>
+                    <option value="Default">select course </option>
+                    <option value="IT">IT</option>
+                    <option value="Electronics & Telecommunication">Electronics & Telecommunication</option>
+                    <option value="Civil">Civil</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Automobile">Automobile</option>
+                    <option value="Computer Science">Computer Science</option>
+                </select>
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="check">Accept the terms and Conditions</label>
+                <input type="checkbox" class="mx-2" id="check" name="check" ngModel required>
+            </div>
+
+        
+            <div class="form-group">
+                <button type="submit" [disabled]="!myForm.valid" class="btn btn-success mt-2 mx-8">Submit</button>
+                <button type="reset" class="btn btn-danger mt-2 mx-5" (click)="Onclear()">Clear</button> 
+            </div>
+        
+    </form>
+    
+    </div>
+    </div>
+
+
+</div>
