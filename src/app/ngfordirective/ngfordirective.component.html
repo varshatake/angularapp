@@ -1,0 +1,16 @@
+
+
+<div class="container-fluid background-image:'./assets/flowers'" >
+    <p class="h2"> *ngfor Directive Assignment</p>
+    <label class="cdropdown">Country :</label>
+    <select (change) = "getstateById($event.target.value)" ngSwitch = "newState">
+        <option value="Default">select country</option>
+        <option [value]="Countries.countryId" *ngFor="let Countries of country">{{Countries.countryName}}</option>
+    </select><br>
+    <br>
+    <label class="cdropdown">States :</label>
+    <select>
+        <option value="Default">select state</option>
+        <option [value] ="" *ngFor="let States of state">{{States.stateName}}</option>
+    </select>
+</div>
