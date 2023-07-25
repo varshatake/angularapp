@@ -1,0 +1,24 @@
+<p>country dropdown</p>
+
+<div>
+    <label class="contain">Country:</label>
+    <select class=" tools text-center" (change)="getStates($event)">
+        <option value="Default">Select Country</option>
+        <option value="india">India</option>
+        <option value="usa">USA </option>
+    </select>
+</div>
+
+
+<div>
+    <label class="contain">States:</label>
+    <select class=" tools text-center">
+
+        <option *ngFor="let state of states">
+            {{state}}
+
+
+        </option>
+    </select>
+
+</div>
