@@ -1,5 +1,5 @@
 <p>simpleform works!</p>
-<div class="container">
+<div class="container h5">
 
     <div class="row justify-content-center">
 
@@ -15,36 +15,78 @@
 
                 <label for="username">UserName</label>
 
-                <input type="text" class="form-control" id="username" name="username" ngModel placeholder="Enter username" required>
-
+                <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" ngModel placeholder="Enter username" required>
+                <small *ngIf="username">User name is : {{username}}</small>
              </div> 
 
              <div class="form-group">
-
                 <label for="email">Email</label>
-
-                <input type="text" class="form-control" id="email" name="email" ngModel placeholder="Enter email address" email required>
-
-             </div>  
+                <input type="text" class="form-control" #email="ngModel" id="email" name="email" ngModel placeholder="Enter email address" (blur)="checkEmail($event)" required>
+                <small class="text-danger" *ngIf="email.touched && !email.valid">Please enter valid email</small>
+                <small class="text-danger" *ngIf="isEmailValid">Please enter valid domain</small>
+            </div>
 
              <div class="form-group">
 
-                <label for="course"></label>
+                <label for="course">Select Course</label>
 
-                <select class="form-control" name="course" id="course" ngModel>
-
+                <select class="form-control" name="course" id="course" [ngModel]="defaultCourseValue">
+                  <!-- [ngModel]="defaultCourseValue" -->
+                  <option value="JavaScript">JavaScript</option>
                     <option value="Angular">Angular</option>
 
-                    <option value="JavaScript">JavaScript</option>
-
                     <option value="TypeScript">TypeScript</option>
+
+                    <option value="HTML & CSS">HTML & CSS</option>
 
                 </select>
 
              </div>
 
-             <button type="submit" [disabled]="!myForm.valid" class="btn btn-success mt-2">Submit</button>
+             <div ngModelGroup="address"> 
 
+                <div class="form-group">
+  
+                  <label for="country">Country</label>
+  
+                  <input placeholder="Enter country" class="form-control" type="text" ngModel name="country" #country="ngModel" required>
+                  <small class="text-danger" *ngIf="country.touched && !country.valid">Please Enter country</small>
+  
+                </div>    
+  
+                <div class="form-group">
+  
+                  <label for="state">State</label>
+  
+                  <input placeholder="Enter State" class="form-control" type="text" ngModel name="state" #state="ngModel" required>
+                  <small class="text-danger" *ngIf="state.touched && !state.valid">Please enter state</small>
+                </div> 
+  
+              </div>
+
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <div *ngFor="let gender of genders" class="custom-control custom-radio">
+                  <input class="custom-control-input" type="radio" name="gender" id="{{gender.id}}" value="{{gender.value}}" ngModel>
+                  <label class="custom-control-label" for="{{gender.id}}">{{gender.value}}</label>
+                 </div>
+             </div>
+  
+
+             <button type="submit" [disabled]="!myForm.valid" class="btn btn-success mt-2">Submit</button>
+             <!-- <button type="reset" class="btn btn-danger mt-2 mx-4" (click)="resetform(form)">Reset</button> -->
+
+             <div class="row justify-content-center mt-2" *ngIf="isFormSubmitted">
+              <h2 class="text-center" [ngStyle]="{'color':colorIs}">Form Data</h2>
+              <p>UserName: <strong>{{formData.username}}</strong></p>
+              <p>Email: <strong>{{formData.email}}</strong></p>
+              <p>Course: <strong>{{formData.course}}</strong></p>
+              <p>Country: <strong>{{formData.country}}</strong></p>
+              <p>State: <strong>{{formData.state}}</strong></p>
+              <p>Gender: <strong>{{formData.gender}}</strong></p>
+
+              <!-- <p>{{form.defaultval}}</p> -->
+            </div>
         </form>
 
     </div>
