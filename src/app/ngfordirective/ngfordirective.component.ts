@@ -26,11 +26,12 @@ export class NgfordirectiveComponent implements OnInit {
     {sid:'9',stateName: 'Dehli',countryId:'1'}
   ]
 
-  getstateById(value) {
-    console.log(value);
-    const newState = this.state.filter(x => x.countryId == value);
+  getstateById(val) {
+    console.log(val);
+    let selected = val.target.value;
+    const newState = this.state.filter(x => x.countryId == selected);
     console.log('Newly created Array :',newState);
-    
+
   }
   constructor() { }
 
