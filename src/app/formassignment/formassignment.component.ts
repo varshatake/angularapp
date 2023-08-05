@@ -8,6 +8,12 @@ import { NgForm } from '@angular/forms';
 })
 export class FormassignmentComponent implements OnInit {
 
+  username: string;
+  phoneno: number;
+  defaultCourse = 'Computer Science';
+  
+  colorval: 'white';
+
   constructor() { }
 
   ngOnInit() {
@@ -15,6 +21,15 @@ export class FormassignmentComponent implements OnInit {
 
   submitForm(form: NgForm) {
     console.log(`Form submitted :`,form.value);
+    let email = form.value.email;
+
+    console.log('Email is', email);
+
+    let country = form.value.address.country;
+
+    console.log('user input country name is', country)
+
+  
   }
 
   Onclear(){

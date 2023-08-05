@@ -1,6 +1,6 @@
 <p>formassignment works!</p>
 
-<div class="container h6">
+<div class="container h5">
 
     <div class="row justify-content-center">
         <div class="col-md-6 text-left justify-content-center shadow py-5">
@@ -9,12 +9,14 @@
             <form (ngSubmit) ="submitForm(myForm)" #myForm = "ngForm">
             <div class="form-group">
                 <label for="username">Username :</label>
-                <input type="text" class="form-control" id="username" name="username" ngModel placeholder="Enter Username" required>
+                <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" ngModel placeholder="Enter Username" required>
+                <small *ngIf="username" class="text-info">User name is : {{username}}</small>
             </div>
 
             <div class="form-group">
                 <label for="emailid" >Email-id :</label>
-                <input type="text" class="form-control" id="emailid" name="emailid" ngModel placeholder="Enter email address" email required>
+                <input type="email" class="form-control" id="emailid" #email="ngModel" name="emailid" ngModel placeholder="Enter email address" email required>
+                <small class = "text-danger" *ngIf="email.touched && !email.valid">Please Enter Valid Email</small>
             </div>
 
             <div class="form-group">
@@ -27,7 +29,8 @@
 
             <div class="form-group">
                 <label for="phoneno">Mobile No :</label>
-                <input type="number" class="form-control" id="phoneno" name="phoneno" ngModel placeholder="Enter phone no">
+                <input type="number" class="form-control" id="phoneno" [(ngModel)]="phoneno" name="phoneno" ngModel placeholder="Enter phone no">
+                <small *ngIf="phoneno" class="text-info">Mobile Number {{phoneno}}</small>
             </div>
 
             <div class="form-group">
@@ -42,7 +45,7 @@
 
             <div class="form-group mt-2">
                 <label for="courselist">Select Courses :</label>
-                <select name="courselist" class="form-control" ngModel>
+                <select name="courselist" [ngModel]="defaultCourse" class="form-control" ngModel>
                     <option value="Default">select course </option>
                     <option value="IT">IT</option>
                     <option value="Electronics & Telecommunication">Electronics & Telecommunication</option>
@@ -53,15 +56,33 @@
                 </select>
             </div>
 
+            <div ngModelGroup="information" class="mt-2">
+                <div class="form-group">
+                    <label for="allcountry" >Country</label>
+                    <input type="text" class="form-control" id="allcountry" #allcountry="ngModel" name="allcountry" ngModel placeholder="Enter country" required>
+                    <small class="text-danger" *ngIf="allcountry.touched && !allcountry.valid">Please enter country</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="allstate">State</label>
+                    <input type="text" class="form-control" id="allstate" #allstate="ngModel" name="allstate" ngModel placeholder="Enter state" required>
+                    <small class="text-danger" *ngIf="allstate.touched && !allstate.valid">Please enter State</small>
+                </div>
+            </div>
+
             <div class="form-group mt-2">
-                <label for="check">Accept the terms and Conditions</label>
-                <input type="checkbox" class="mx-2" id="check" name="check" ngModel required>
+                <label for="check" [ngStyle] ="{'color':colorval}">Accept the terms and Conditions</label>
+                <input type="checkbox" class="mx-2" id="check" #check="ngModel" name="check" ngModel required><br>
+                <small class="text-warning" *ngIf="!check.valid">Please accept terms and conditions</small>
             </div>
 
         
             <div class="form-group">
-                <button type="submit" [disabled]="!myForm.valid" class="btn btn-success mt-2 mx-8">Submit</button>
-                <button type="reset" class="btn btn-danger mt-2 mx-5" (click)="Onclear()">Clear</button> 
+                <button type="submit" [disabled]="!myForm.valid" class="btn btn-success mt-2 mx-8 form-control">Register</button>
+            </div>
+
+            <div class="form-group text-center">
+                <button type="reset" class="btn btn-danger mt-2 mx-16" (click)="Onclear()">Clear</button> 
             </div>
         
     </form>
