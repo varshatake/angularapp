@@ -7,7 +7,7 @@ import { DemoComponent } from './demo/demo.component';
 import { Demo2Component } from './demo2/demo2.component';
 import { Demo3Component } from './demo3/demo3.component';
 import { DatabindingComponent } from './databinding/databinding.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChildComponent } from './child/child.component';
 import { Child2Component } from './child2/child2.component';
 import { NewchildInputComponent } from './newchild-input/newchild-input.component';
@@ -17,6 +17,16 @@ import { NgforComponent } from './ngfor/ngfor.component';
 import { NgswitchComponent } from './ngswitch/ngswitch.component';
 import { NgforassignmentComponent } from './ngforassignment/ngforassignment.component';
 import { NgswitchassignmentComponent } from './ngswitchassignment/ngswitchassignment.component';
+import { AttributedirComponent } from './attributedir/attributedir.component';
+import { IscheckboxComponent } from './ischeckbox/ischeckbox.component';
+import { CustomdirDirective } from './customdir.directive';
+import { NgfordirectiveComponent } from './ngfordirective/ngfordirective.component';
+import { SimpleformComponent } from './simpleform/simpleform.component';
+import { CountryComponent } from './country/country.component';
+import { FormassignmentComponent } from './formassignment/formassignment.component';
+import { ReactiveformComponent } from './reactiveform/reactiveform.component';
+import { TemplatedrivenassignmentComponent } from './templatedrivenassignment/templatedrivenassignment.component';
+
 
 @NgModule({
   declarations: [
@@ -33,12 +43,22 @@ import { NgswitchassignmentComponent } from './ngswitchassignment/ngswitchassign
     NgforComponent,
     NgswitchComponent,
     NgforassignmentComponent,
-    NgswitchassignmentComponent
+    NgswitchassignmentComponent,
+    AttributedirComponent,
+    IscheckboxComponent,
+    CustomdirDirective,
+    NgfordirectiveComponent,
+    SimpleformComponent,
+    CountryComponent,
+    FormassignmentComponent,
+    ReactiveformComponent,
+    TemplatedrivenassignmentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
