@@ -1,0 +1,47 @@
+<p>reactiveassignment works!</p>
+<div class="container display-7">
+    <div class="row justify-content-center">
+        <div class="col-md-6 rounded shadow py-5">
+            <form [formGroup]="myReactiveform" (ngSubmit)="OnSubmitt()">
+                <div class="form-group">
+                <label for="projectname">Project Name</label>
+                <input type="text" class="form-control" formControlName="projectname" placeholder="please enter project name">
+                <small *ngIf="!myReactiveform.get('projectname').valid && myReactiveform.get('projectname').touched">
+                    <span class="text-danger" *ngIf="myReactiveform.get('projectname').errors['required']">Project Name Required*</span>
+
+                    <span class="text-danger" *ngIf="myReactiveform.get('projectname').errors['projectnameNotAllowed']">project name already in use. Take another</span>
+                </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="please enter email address">
+                    <small *ngIf="!myReactiveform.get('email').valid && myReactiveform.get('email').touched">
+                        <span class="text-danger" *ngIf="myReactiveform.get('email').errors['required']">Please enter valid email</span>
+
+                        <span class="text-danger" *ngIf="myReactiveform.get('email').errors['emailNotTaken']">This email is Already taken. Try another.</span>
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="pstatus">Project Status</label>
+                    <input type="text" class="form-control" formControlName="projectstatus" placeholder="status">
+                </div>
+
+                <button type="submit"  class="btn btn-success mt-2">Submit</button>
+
+                <div class="row justify-content-center mt-2" *ngIf="isRformsubmitted">
+                    <h2 class="text-center h6">Form Data</h2>
+                    <p><strong>Project Name: {{myReactiveform.get('projectname').value}}</strong></p>
+                    <p><strong>Email id : {{myReactiveform.get('email').value}}</strong></p>
+                    <p><strong>Project status : {{myReactiveform.get('projectstatus').value}}</strong></p>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<br> <br>
