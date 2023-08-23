@@ -1,0 +1,117 @@
+ <p>Template Driven Assignment</p>
+ <div class="container display-7">
+    <div class="justify-content-center ">
+        <div class="row justify-content-center h2">Template driven Form</div>
+
+        <div class="row col-md-12 rounded shadow py-5">
+
+        <form (ngSubmit)="tFormsubmit(templateForm)" #templateForm="ngForm">
+        <div class="row col-md-12 form-group">
+
+            <!-- first div col-->
+            
+            <div class="form-group col-md-4 justify-content-center mt-2">
+                <figcaption>
+                    <img src=".\assets\cat.jpg" class="rounded-circle mt-3 mb-3" width="150" height="150">
+                    <figure class="mx-4 mt-2">Jennifer</figure>
+                    </figcaption>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta tempora ipsa velit dignissimos, 
+                        corporis enim vero iste repellendus magnam quod, aliquid eos? Eum incidunt dignissimos voluptatibus, 
+                        tempora in pariatur ipsa.</p>
+            </div>
+
+            <!-- second div col -->
+            <div class="form-group col-md-4 justify-content-center mt-2 mb-2">
+                <div class="text-left h4">User Details</div>
+                <div class="justify-content-center mt-2">
+                <label for="fullname">Full Name*</label><br>
+                <input type="text" class="form-control" [(ngModel)]="fullname" name="fullname" ngModel placeholder="Enter name" required>
+                <small *ngIf="fullname" class="text-success h4">Full name is : {{fullname}}</small><br> 
+                <!-- <small *ngIf="userfullname.touched && !userfullname.valid" class="text-warning">Full name is mandatory</small> -->
+                <label for="birthdate">Birth Date</label><br>
+                <input type="date" class="form-control mt-2" name="birthdate" ngModel placeholder="Your birthday*" required>
+                </div>
+
+                <div class="justify-content-center mt-2">
+                    <label for="Gender">Gender</label><br>
+                    <select name="Gender" class="form-control" #Gender="ngModel" [ngModel]="defaultGender" ngModel required>
+                        <!-- <label>Gender</label> -->
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <small *ngIf="Gender.touched && !Gender.valid" class="text-danger">please select gender</small>
+
+                </div>
+
+                <div class="row">
+                    <label for="countrydropdown">Country</label><br>
+                <div class="col-md-3">
+                    <!-- <label>Country</label><br> -->
+                    <select name="countrydropdown" ngModel class="form-control" [ngModel]="defaultCountry">
+                        <option value="india">India</option>
+                        <option value="usa">USA</option>
+                        <option value="austrelia">Austrelia</option>
+                    </select>
+                </div>
+
+                <div class="col-md-9 mb-2">
+                    <input type="number" class="form-control" name="phone" placeholder="Phone*" ngModel pattern="[0-9]*" required>
+                </div>
+                </div>
+
+                <div class="justify-content-center mb-2">
+                    <label for="bio">Bio</label><br>
+                    <textarea class="form-control" name="bio" ngModel maxlength="256" [(ngModel)]="bio" placeholder="biogrphy">
+                    <span *ngIf="bio" class="text-info">Bio : {{bio}}</span></textarea>
+                </div>
+
+            </div>
+
+            <!-- third div col -->
+            <div class="form-group col-md-4 justify-content-center mt-2">
+                <div class="text-left h4">Account Details</div>
+                <label for="username">UserName</label><br>
+                <input type="text" name="username" class="form-control mb-2" ngModel placeholder="Username*" [(ngModel)]="username" pattern="[a-zA-Z0-9]*$" required>
+                <small *ngIf="username" class="text-success h4">Username : {{username}}</small><br>
+                <label for="email">Email</label><br>
+                <input type="email" name="email" #email="ngModel" class="form-control mb-2" ngModel placeholder="Email*" required>
+                <small *ngIf ="email.touched && !email.valid" class="text-danger">Please Enter Email</small><br>
+                <label for="password">Password</label><br>
+                <input type="password" name="password" class="form-control mb-2" ngModel placeholder="Password*" #password="ngModel" required>
+                <small *ngIf="password.touched && !password.valid" class="text-danger">Please enter password</small><br>
+                <label for="confirmPwd">Confirm Password</label><br>
+                <input type="password" name="confirmPwd" #confirmPwd="ngModel" class="form-control mb-2" ngModel placeholder="Confirm Password" required>
+                <small *ngIf="confirmPwd.touched && !confirmPwd.valid" class="text-danger">confirm entered password</small> <br>
+                    <!-- <small *ngIf="formControldata.confirmPwd !== formControldata.password">Password do not match</small> -->
+                <input type="checkbox" class="mb-2" name="check" #check="ngModel" ngModel required> <span class="mx-2">I accept terms and Conditions</span><br>
+                <small *ngIf="check.touched && !check.valid" class="text-danger">Please accept terms and conditions</small>
+                
+
+                <div class="mt-2">
+                    <button type="submit" name="submit" [disabled]="!templateForm.valid" class="btn btn-light">Submit</button>
+                </div>
+            </div>
+        
+        </div>
+
+        <div class="row justify-content-center mt-2" *ngIf="whenFormsubmit">
+            <h2>Template driven form data</h2>
+            <p>Full name :<b>{{formControldata.fullname}}</b></p>
+            <p>Birthdate :<b>{{formControldata.birthdate}}</b></p>
+            <p>Gender :<b>{{formControldata.Gender}}</b></p>
+            <p>Country :<b>{{formControldata.countrydropdown}}</b></p>
+            <p>Mobile no :<b>{{formControldata.phone}}</b></p>
+            <p>Bio :<b>{{formControldata.bio}}</b></p>
+            <p>Username :<b>{{formControldata.username}}</b></p>
+            <p>Email :<b>{{formControldata.email}}</b></p>
+            <p>password :<b>{{formControldata.password}}</b></p>
+            <p>confirm password :<b>{{formControldata.confirmPwd}}</b></p>
+
+
+        </div>
+
+        </form>
+
+    </div>
+ </div>

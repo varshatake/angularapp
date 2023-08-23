@@ -1,0 +1,28 @@
+input.ng-invalid.ng-touched,
+
+select.ng-invalid.ng-touched{
+
+    border: 1px solid red;
+
+    box-shadow: 0 0 13px #ff000021;
+
+}
+
+.container{
+background-image: url('/assets/lightblue.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.col-md-2{
+    display: inline-block;
+}  
+
+.col-md-4{
+    display: inline-block;
+}
+
+/* img{
+    box-sizing: border-box;
+    border-radius: 50%;
+}  */
