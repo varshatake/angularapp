@@ -1,0 +1,57 @@
+<p>rform works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-left rounded shadow py-5" id="main_form">
+            <h3 class=" text-danger text-center">Reactive Form</h3>
+            <form [formGroup]="myForm" (ngSubmit)="OnSubmit()">
+                <div  formGroupName="userDetails">
+                    <div class="form-group">
+                        <label for="username">Project Name </label>
+                        <input type="text" class="form-control" formControlName="username" placeholder="Please enter name">
+                        <!-- <small class="text-danger" *ngIf="!myForm.get('userDetails.username').valid && myForm.get('userDetails.username').touched">User name required *</small> -->
+                        <small class="text-danger" *ngIf="!myForm.get('userDetails.username').valid && 
+                        myForm.get('userDetails.username').touched">
+    
+                        <span class="text-danger" *ngIf="myForm.get('userDetails.username').errors['required']">please enter project name</span>
+                        
+                        <span class="text-danger" *ngIf="myForm.get('userDetails.username').errors['namesIsNotAllowed']">That Project Name is taken. Try another.</span>
+                        
+                    </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" formControlName="email" placeholder="Please enter email address">
+                
+                    
+                    <small class="text-danger" *ngIf="myForm.get('userDetails.email')?.errors?.required && myForm.get('userDetails.email')?.touched">
+                        <span class="text-danger">please enter email*</span>
+                      </small>
+                      <small class="text-danger" *ngIf="myForm.get('userDetails.email')?.errors?.emailNotAllowed">
+                        <span class="text-danger">That Email is taken. Try another.</span>
+                      </small>
+
+                    </div>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="course">Project Status </label>
+                    <select formControlName="course" class="form-control" name="course" id="course">
+                        <option value="Stable">Stable</option>
+                        <option value="Critical">Critical</option>
+                        <option value="Finished">Finished</option>
+                     
+                    </select>
+
+                </div>
+
+            
+                <button type="submit"  class="btn btn-success mt-2">Submit</button>
+                <div class="row justify-content-center mt-2" *ngIf="isFormSubmitted">
+                    <h2 class="text-center">Form Data</h2>
+                    <p>UserName: <strong>{{myForm.get('userDetails.username').value}}</strong></p>
+                    <p>Email: <strong>{{myForm.get('userDetails.email').value}}</strong></p>
+                    <p>Course: <strong>{{myForm.get('course').value}}</strong></p>                  
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
