@@ -1,0 +1,51 @@
+<p>comp1 works!</p>
+<button class="btn btn-info">Press me</button>
+<div *ngFor="let product of products">
+    {{product.id}} 
+    {{product.name}}
+   </div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <h2 class="text-center h4">Fetch data from User</h2>
+        <table class="table table-striped table-bordered bg-info">
+            <thead>
+                <th>Sr.No</th>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Street</th>
+                <th>Suite</th>
+                <th>city</th>
+                <th>zipcode</th>
+                <th>geo lng</th>
+                <th>Company Name</th>
+                <th>catchphrase</th>
+                <th>phone</th>
+                <th>website</th>
+                
+            </thead>
+
+            <tbody class="table-light">
+                <tr *ngFor="let arrData of resObj" class="table-row h6 border-black">
+                    <!-- <td>{{i+1}}</td> -->
+                    <td class="text-center">{{arrData.id}}</td>
+                    <td>{{arrData.name}}</td>
+                    <td>{{arrData.username}}</td>
+                    <td><a href="{{arrData.email}}">{{arrData.email}}</a></td>
+                    <td>{{arrData.address.street}}</td>
+                    <td>{{arrData.address.suite}}</td>
+                    <td>{{arrData.address.city}}</td>
+                    <td>{{arrData.address.zipcode}}</td>
+                    <td>{{arrData.address.geo.lng}}</td>
+                    <td>{{arrData.company.name}}</td>
+                    <td>{{arrData.company.catchPhrase}}</td>
+                    <td>{{arrData.phone}}</td>
+                    <td><a href="{{arrData.website}}">{{arrData.website}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
