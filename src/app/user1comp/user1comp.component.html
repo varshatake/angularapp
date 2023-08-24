@@ -1,0 +1,29 @@
+<p>comp works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <h2 class="text-center h4">Fetch data from /posts</h2>
+        <div class="col-md-8 mb-2">
+            <label for="postid">Search By Title</label>
+            <input type="text" class="form-control" id="postid" placeholder="enter title" [(ngModel)]="postsearch">
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <th>UserId</th>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Body</th>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let postdata of resObj1 | userpipe:postsearch" class="table-row h6 border-black">
+                    <td>{{postdata.userId}}</td>
+                    <td>{{postdata.id}}</td>
+                    <td>{{postdata.title}}</td>
+                    <td>{{postdata.body}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+<br>
