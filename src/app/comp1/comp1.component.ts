@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Service1Service } from 'src/Services/service1.service';
-import { UserService } from 'src/Services/user.service';
+import { UtilityService } from 'src/Services/utility.service';
+
 
 @Component({
   selector: 'app-comp1',
@@ -9,33 +9,53 @@ import { UserService } from 'src/Services/user.service';
 })
 export class Comp1Component implements OnInit {
 
-  products = {};
-
-  resObj : any;
-  
-  // I have injected my services into constuctor
-  constructor(private objService: Service1Service,private objUser : UserService) { }
+  userName = 'Codemind';
+  test;
+  // products = {};
+  // ;
+  // Inject the Service1
+  constructor(private utilityService: UtilityService) {
+     
+    // this.utilityService.userName.subscribe(res => {
+    //   console.log('getting value from subject', res);
+    // })
+   }
 
   ngOnInit() {
-    //const objService = new Service1Service();
-    this.products = this.objService.products;
 
+    this.utilityService.userName.subscribe(res => {
+      this.userName = res;
+      console.log('res from subject', res);
+    })
     
-    //call get user method from users service
-    var obj = this.objUser.getUsers();
+   // const objService = new Service1Service();
+  //   this.products = this.objService.products;
 
-   obj.subscribe(res=> {
-    this.resObj = res;
-    console.log('Comp1 getting response :',res)
-   });
+  //  var obj = this.objUser.getUsers();
+   
+  //  obj.subscribe(res=> {
+
+  //   console.log(res)
+  //  })
+
+  // obj.subscribe(res=> {
+  //   this.resObj = res;
+  //   console.log('Comp1 getting response :',res)
+  //  });
 
   }
 
+  // hello() {
+  //   // created object of service
+  //   //const objService = new Service1Service();
+  //   this.objService.hello('Dnyanesh');
+  // }
+  
+  updateUserName(uname){
+    this.userName = uname.value;
+    //console.log('Method called', uname.value);
 
-
- hello() {
-  //created object of service
-  //const objService = new Service1Service();
-  this.objService.hello();
- } 
+    // we are inserting value inside observable
+    this.utilityService.userName.next(uname.value);
+  }
 }

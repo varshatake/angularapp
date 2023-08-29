@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Service1Service } from 'src/Services/service1.service';
+import { UtilityService } from 'src/Services/utility.service';
+
 
 @Component({
   selector: 'app-comp2',
@@ -7,26 +8,38 @@ import { Service1Service } from 'src/Services/service1.service';
   styleUrls: ['./comp2.component.css']
 })
 export class Comp2Component implements OnInit {
+  userName = 'Codemind';
   products = {};
 
-  // I have injected my service into constuctor
-  constructor(private objService: Service1Service) { }
+  //resObj : any;
+  // I have injected my service into constructor
+  constructor(private utilityService: UtilityService) { }
 
   ngOnInit() {
-    //const objService = new Service1Service();
-    this.products = this.objService.products;
+
+    this.utilityService.userName.subscribe(res =>{
+      this.userName = res;
+      console.log(res);
+    })
+   // const objService = new Service1Service();
+
+    // this.products= this.objService.products;
   }
 
-hello() {
-  //created object of service
-  //const objService = new Service1Service();
-  this.objService.hello();
-}
+  // hello() {
+  //   // created object of service
+  //  // const objService = new Service1Service();
+  //   this.objService.hello('dnyanesh');
+  // }
 
-sayHello(){
-  //const objService = new Service1Service();
-  console.log(this.objService);
-  
-}
+  // sayHello () {
+  // //  const objService = new Service1Service();
+  //   console.log(this.objService);
+  // }
 
+  updateUserName(uname){
+    this.userName =  uname.value;
+    console.log('Method called', uname.value);
+    this.utilityService.userName.next(uname.value);
+  }
 }

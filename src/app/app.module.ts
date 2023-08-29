@@ -46,6 +46,17 @@ import { C1Component } from './c1/c1.component';
 import { C2Component } from './c2/c2.component';
 import { C3Component } from './c3/c3.component';
 import { C4Component } from './c4/c4.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { LaptopComponent } from './products/laptop/laptop.component';
+import { TvComponent } from './products/tv/tv.component';
+import { WashingmachineComponent } from './products/washingmachine/washingmachine.component';
+import { MobileComponent } from './products/mobile/mobile.component';
+import { TabletComponent } from './products/tablet/tablet.component';
+import { ProductComponent } from './product/product.component';
 
 
 @NgModule({
@@ -91,7 +102,18 @@ import { C4Component } from './c4/c4.component';
     C1Component,
     C2Component,
     C3Component,
-    C4Component
+    C4Component,
+    LoginComponent,
+    HomeComponent,
+    AboutusComponent,
+    ContactusComponent,
+    PagenotfoundComponent,
+    LaptopComponent,
+    TvComponent,
+    WashingmachineComponent,
+    MobileComponent,
+    TabletComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

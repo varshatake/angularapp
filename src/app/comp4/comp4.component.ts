@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilityService } from 'src/Services/utility.service';
+
 
 @Component({
   selector: 'app-comp4',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comp4.component.css']
 })
 export class Comp4Component implements OnInit {
-
-  constructor() { }
+  userName = 'Codemind';
+  constructor(private utilityService: UtilityService) { }
 
   ngOnInit() {
+    this.utilityService.userName.subscribe(res => {
+      this.userName = res;
+      console.log(res)
+    })
   }
 
+  updateUserName(uname){
+    this.userName = uname.value;
+    console.log('Method called', uname.value);
+    this.utilityService.userName.next(uname.value);
+  }
 }
