@@ -19,7 +19,7 @@ import { NgforassignmentComponent } from './ngforassignment/ngforassignment.comp
 import { NgswitchassignmentComponent } from './ngswitchassignment/ngswitchassignment.component';
 import { AttributedirComponent } from './attributedir/attributedir.component';
 import { IscheckboxComponent } from './ischeckbox/ischeckbox.component';
-import { CustomdirDirective } from './customdir.directive';
+//import { CustomdirDirective } from './customdir.directive';
 import { NgfordirectiveComponent } from './ngfordirective/ngfordirective.component';
 import { SimpleformComponent } from './simpleform/simpleform.component';
 import { CountryComponent } from './country/country.component';
@@ -30,7 +30,7 @@ import { Comp1Component } from './comp1/comp1.component';
 import { Comp2Component } from './comp2/comp2.component';
 import { Agecomp1Component } from './agecomp1/agecomp1.component';
 import { Agecomp2Component } from './agecomp2/agecomp2.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { UserComponent } from './user/user.component';
 import { ReactiveassignmentComponent } from './reactiveassignment/reactiveassignment.component';
 import { PipedemoComponent } from './pipedemo/pipedemo.component';
@@ -51,12 +51,25 @@ import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { LaptopComponent } from './products/laptop/laptop.component';
-import { TvComponent } from './products/tv/tv.component';
-import { WashingmachineComponent } from './products/washingmachine/washingmachine.component';
-import { MobileComponent } from './products/mobile/mobile.component';
-import { TabletComponent } from './products/tablet/tablet.component';
-import { ProductComponent } from './product/product.component';
+//import { ProductComponent } from './product/product.component';
+import { LaptopComponent } from './product/laptop/laptop.component';
+import { TvComponent } from './product/tv/tv.component';
+import { WashingmachineComponent } from './product/washingmachine/washingmachine.component';
+import { TabletComponent } from './product/tablet/tablet.component';
+import { ProductsModule } from './products/products.module';
+import { UtilityModule } from './utility.module';
+import { PostComponent } from './post/post.component';
+import { HookComponent } from './hook/hook.component';
+import { PostdetailsComponent } from './postdetails/postdetails.component';
+import { TodoComponent } from './todo/todo.component';
+import { RapidapiComponent } from './rapidapi/rapidapi.component';
+import { RapidassignmentComponent } from './rapidassignment/rapidassignment.component';
+import { FirebaseComponent } from './firebase/firebase.component';
+import { RandomuserComponent } from './randomuser/randomuser.component';
+import { HeadersInterceptorService } from './headers-interceptor.service';
+import { Service1Service } from 'src/Services/service1.service';
+import { WikipediaComponent } from './wikipedia/wikipedia.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 
 @NgModule({
@@ -77,7 +90,6 @@ import { ProductComponent } from './product/product.component';
     NgswitchassignmentComponent,
     AttributedirComponent,
     IscheckboxComponent,
-    CustomdirDirective,
     NgfordirectiveComponent,
     SimpleformComponent,
     CountryComponent,
@@ -108,12 +120,21 @@ import { ProductComponent } from './product/product.component';
     AboutusComponent,
     ContactusComponent,
     PagenotfoundComponent,
-    LaptopComponent,
-    TvComponent,
-    WashingmachineComponent,
-    MobileComponent,
-    TabletComponent,
-    ProductComponent
+    PostComponent,
+    HookComponent,
+    PostdetailsComponent,
+    TodoComponent,
+    RapidapiComponent,
+    RapidassignmentComponent,
+    FirebaseComponent,
+    RandomuserComponent,
+    WikipediaComponent,
+    RxjsComponent,
+    //ProductComponent,
+    // LaptopComponent,
+    // TvComponent,
+    // WashingmachineComponent,
+    // TabletComponent,
   ],
   imports: [
     BrowserModule,
@@ -121,9 +142,25 @@ import { ProductComponent } from './product/product.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-  
+    ProductsModule,
+    UtilityModule,
   ],
-  providers: [],
+  providers: [Service1Service,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeadersInterceptorService,
+      multi: true
+      }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  /**
+   *
+   */
+  constructor() {
+    console.log('App Module Constructor called.');
+    
+    
+  }
+}

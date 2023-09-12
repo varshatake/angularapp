@@ -1,0 +1,25 @@
+<p>rapidassignment works!</p>
+<div class="container">
+    <h2 class="text-center h4">Fetch data from RapidApi</h2>
+    <div class="row justify-content-center col-md-8 mb-2">
+        <div class="text-left h6">
+        <p>base currency :       {{bookings.base_currency}}</p>
+        <p>Base currency date :  {{bookings.base_currency_date}}</p>
+        </div>
+        <h4 class="text-center">exchange rates</h4>
+        <table class="table table-bordered">
+            <thead>
+                <th>exchange_rate_buy</th>
+                <th>currency</th>
+            </thead>
+            <tbody id="tablebody" class="table-dark">
+                    <tr *ngFor="let bk of bookings.exchange_rates">
+                    <td>{{bk.exchange_rate_buy}}</td>
+                    <td>{{bk.currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

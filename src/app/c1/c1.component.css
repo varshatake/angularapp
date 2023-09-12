@@ -1,0 +1,8 @@
+.container{
+    background-color: #DAF7A6 ;
+}
+
+input{
+    box-sizing: border-box;
+    border-radius: 10px;
+}

@@ -1,0 +1,81 @@
+<p>randomuser works!</p>
+<!-- <div class="container">
+    <h2>Fetch data from Random user API</h2>
+    <div class="row justify-content center col-md-6 mb-2">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <th>Username</th>
+                <th>sex</th>
+                <th>Address</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Birthday</th>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>{{objrandom.username}}</td>
+                    <td>{{objrandom.sex}}</td>
+                    <td>{{objrandom.address}}</td>
+                    <td>{{objrandom.name}}</td>
+                    <td>{{objrandom.email}}</td>
+                    <td>{{objrandom.birthday}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div> -->
+
+<div class="container">
+  <div class="row mb-2">
+    <h2 class="text-center">Fetch data from Random User : Results</h2>
+    <div class="mb-2">
+      <p class="text-center h4">Info</p>
+      <p><b>page:</b> {{ obj.info.page }}</p>
+      <p><b>results:</b> {{ obj.info.results }}</p>
+      <p><b>seed:</b> {{ obj.info.seed }}</p>
+      <p><b>version:</b> {{ obj.info.version }}</p>
+    </div>
+    <form [formGroup]="searchUserForm" (ngSubmit)="displaySpecificmuser()">
+      <div class="mb-4">
+        <label for="user" class="h4 mx-2">Enter Number Of User :</label>
+        <input type="text" id="user" formControlName="userCount" name="user" min="0" max="5000"/>
+        <button class="btn btn-primary mr-1">Search User</button>
+      </div>
+    </form>
+    <div class="fixTableHead">
+      <table class="table table-bordered">
+        <thead id="theads">
+          <th>Gender</th>
+          <th>Name</th>
+          <th>Location country</th>
+          <th>Location state</th>
+          <th>Email</th>
+          <th>Login username</th>
+          <th>Login password</th>
+          <th>First name</th>
+          <th>Last</th>
+          <th>Picture</th>
+          <!-- <th>Registered date</th> -->
+        </thead>
+
+        <tbody class="table-row border-black" id="tablebody">
+          <tr *ngFor="let userdata of objrandom">
+            <td>{{ userdata.gender }}</td>
+            <td>{{ userdata.id.name }}</td>
+            <td>{{ userdata.location.country }}</td>
+            <td>{{ userdata.location.state }}</td>
+            <td>{{ userdata.email }}</td>
+            <td>{{ userdata.login.username }}</td>
+            <td>{{ userdata.login.password }}</td>
+            <td>{{ userdata.name.first }}</td>
+            <td>{{ userdata.name.last }}</td>
+            <td><img src="{{ userdata.picture.large }}" /></td>
+            <!-- <td>{{userdata.registered.date}}</td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

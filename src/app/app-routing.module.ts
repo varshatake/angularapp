@@ -10,26 +10,44 @@ import { LaptopComponent } from './product/laptop/laptop.component';
 import { TvComponent } from './product/tv/tv.component';
 import { TabletComponent } from './product/tablet/tablet.component';
 import { WashingmachineComponent } from './product/washingmachine/washingmachine.component';
+import { AuthgaurdGuard } from './AuthGuard/authguard.guard';
+import { TodoComponent } from './todo/todo.component';
+import { PostComponent } from './post/post.component';
+import { PostdetailsComponent } from './postdetails/postdetails.component';
+import { RapidapiComponent } from './rapidapi/rapidapi.component';
+import { RapidassignmentComponent } from './rapidassignment/rapidassignment.component';
+import { FirebaseComponent } from './firebase/firebase.component';
+import { RandomuserComponent } from './randomuser/randomuser.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent}, // localhost:4200/login
-  {path: 'home', component: HomeComponent},
+  {path: 'home', canActivate:[AuthgaurdGuard],component: HomeComponent},
   {path: 'aboutus', component: AboutusComponent},
   {path: 'contactus', component: ContactusComponent},
   // {path: 'product', children: [  //for single component
     // { path: '', component: ProductComponent}, // localhost:4200/product/laptop
-    {path: 'product',component:ProductComponent,children:[
+    {path: 'product',canActivate:[AuthgaurdGuard],component:ProductComponent, children:[
       {path: 'laptop', component: LaptopComponent},
       { path: 'tv', component: TvComponent},
       {path: 'tablet', component: TabletComponent},
       {path: 'washingmachine', component: WashingmachineComponent}
     ] },
+    {path:'post',component:PostComponent},
+    {path:'postdetails:/id',component:PostdetailsComponent},
+    {path: 'todo', component: TodoComponent},
+    {path:'rapidapi',component:RapidapiComponent},
+    {path:'rapidapiassignment',component:RapidassignmentComponent},
+    {path:'firebaseapi',component:FirebaseComponent},
+    {path:'randomuserapi',component:RandomuserComponent},
+    {path:'rxjs',component:RxjsComponent},
   {path: '**', component: PagenotfoundComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+  // { preloadingStrategy: PreloadAllModules}
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

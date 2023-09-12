@@ -1,0 +1,32 @@
+<p>rapidapi works!</p>
+<div class="container">
+    <h2 class="text-center h4">Fetch data from RapidApi</h2>
+    <div class="col-md-8 mb-2">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <th>News title</th>
+                <th>news link</th>
+                <th>quotes shortname</th>
+                <th>quotetype</th>
+                <th>quote symbol</th>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let rapidata of rapidapiData">
+                    <td>{{rapiddata.news.title}}</td>
+                    <td>{{rapiddata.news.link}}</td>
+                    <td>{{rapiddata.quotes.shortname}}</td>
+                    <td>{{rapiddata.quotes.quoteType}}</td>
+                    <td>{{rapiddata.quotes.symbol}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+<div></div>
+<button class="btn btn-primary" (click)="GetMarketData()">GetMarketData</button> <br> <br>
+
+<button class="btn btn-primary" (click)="getMovers()">GetMovers</button>

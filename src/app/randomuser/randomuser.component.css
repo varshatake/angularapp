@@ -1,0 +1,19 @@
+
+.fixTableHead {
+    overflow-y: auto; 
+    height: 400px;
+  }
+  .fixTableHead thead th {
+    /* fixed header position on top  */
+    position: sticky;
+    top: 0;   
+    background-color: cadetblue;
+  }
+
+  .fixTableHead table td { background-color: burlywood; }
+
+  input {
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-right: 10px;
+  }

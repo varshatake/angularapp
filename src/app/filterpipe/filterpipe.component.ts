@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-filterpipe',
   templateUrl: './filterpipe.component.html',
-  styles: []
+  styles: ['./filterpipe.component.css']
 })
 export class FilterpipeComponent implements OnInit {
 
@@ -39,6 +39,14 @@ export class FilterpipeComponent implements OnInit {
     }
   ]
   
+  AddProduct(prodname: any){
+    this.prodcutArr.push({
+      prodNo: 5,
+      productName:prodname ,
+      productPrice: '35000 RS',
+      availability: 'Available'
+    })
+  }
 
 
   constructor() { }
