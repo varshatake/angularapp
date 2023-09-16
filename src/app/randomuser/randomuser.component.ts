@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RandomuserService } from 'src/Services/randomuser.service';
 
@@ -14,13 +14,15 @@ export class RandomuserComponent implements OnInit {
   //particularUser:any;
   searchUserForm: FormGroup;
   
+  
   constructor(private randomService: RandomuserService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.searchUserForm = this.formBuilder.group({
       userCount: ['', Validators.required]      
   });
-    this.displayRandomuser();
+   this.displayRandomuser();
+  
   }
 
   displayRandomuser() {
@@ -36,6 +38,7 @@ export class RandomuserComponent implements OnInit {
   //   if (this.searchUserForm.invalid) {
   //     return;
   // }  
+  //
     this.randomService.specificUsers(this.searchUserForm.value.userCount).subscribe(resp => {
       console.log('Random user data :',resp);
       this.obj = resp;

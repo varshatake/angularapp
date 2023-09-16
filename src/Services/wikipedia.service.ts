@@ -5,23 +5,21 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class WikipediaService {
-  private apiUrl = 'https://en.wikipedia.org/w/api.php';
+  private wikiUrl = 'https://en.wikipedia.org/w/api.php';
+ 
   constructor(private httpc : HttpClient) { }
 
-  search(query: string) {
+  searchS(query: string) {
     const params = {
       action: 'query',
       format: 'json',
       list: 'search',
       utf8: '1',
       srsearch: query,
-     origin: '*'
-     
+      origin: '*'
     };
 
-  
-    return this.httpc.get(this.apiUrl, { params });
-  
- }  
+    return this.httpc.get(this.wikiUrl, { params });
+  }
             
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from 'protractor';
 import { WikipediaService } from 'src/Services/wikipedia.service';
 
 @Component({
@@ -13,12 +14,15 @@ export class WikipediaComponent implements OnInit {
   constructor(private wikipediaservice:WikipediaService) { }
 
   ngOnInit() {
+    this.search();
   }
 
   search() {
-    this.wikipediaservice.search(this.searchTerm).subscribe((data: any) => {
+    this.wikipediaservice.searchS(this.searchTerm).subscribe((data: any) => {
       this.searchResults = data.query.search;
-      console.log(data.query.search);
+      console.log('wikipedia Assignment data :',data.query.search);
+      console.log('searchresults :',this.searchResults);
+      
       
     });
   }

@@ -19,6 +19,8 @@ import { RapidassignmentComponent } from './rapidassignment/rapidassignment.comp
 import { FirebaseComponent } from './firebase/firebase.component';
 import { RandomuserComponent } from './randomuser/randomuser.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { WikipediaComponent } from './wikipedia/wikipedia.component';
+import { GifComponent } from './gif/gif.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -26,9 +28,9 @@ const routes: Routes = [
   {path: 'home', canActivate:[AuthgaurdGuard],component: HomeComponent},
   {path: 'aboutus', component: AboutusComponent},
   {path: 'contactus', component: ContactusComponent},
-  // {path: 'product', children: [  //for single component
+  //{path: 'product', children: [  //for single component
     // { path: '', component: ProductComponent}, // localhost:4200/product/laptop
-    {path: 'product',canActivate:[AuthgaurdGuard],component:ProductComponent, children:[
+    {path: 'product',canActivate:[AuthgaurdGuard],component:ProductComponent,children:[
       {path: 'laptop', component: LaptopComponent},
       { path: 'tv', component: TvComponent},
       {path: 'tablet', component: TabletComponent},
@@ -41,7 +43,9 @@ const routes: Routes = [
     {path:'rapidapiassignment',component:RapidassignmentComponent},
     {path:'firebaseapi',component:FirebaseComponent},
     {path:'randomuserapi',component:RandomuserComponent},
+    {path:'wikipedia',component:WikipediaComponent},
     {path:'rxjs',component:RxjsComponent},
+    {path:'gif',component:GifComponent},
   {path: '**', component: PagenotfoundComponent},
 ];
 

@@ -37,13 +37,15 @@
       <p><b>seed:</b> {{ obj.info.seed }}</p>
       <p><b>version:</b> {{ obj.info.version }}</p>
     </div>
-    <form [formGroup]="searchUserForm" (ngSubmit)="displaySpecificmuser()">
+    
+    <form [formGroup]="searchUserForm" (ngSubmit)="displaySpecificmuser()">  
       <div class="mb-4">
         <label for="user" class="h4 mx-2">Enter Number Of User :</label>
         <input type="text" id="user" formControlName="userCount" name="user" min="0" max="5000"/>
         <button class="btn btn-primary mr-1">Search User</button>
       </div>
-    </form>
+    </form> 
+
     <div class="fixTableHead">
       <table class="table table-bordered">
         <thead id="theads">

@@ -70,6 +70,8 @@ import { HeadersInterceptorService } from './headers-interceptor.service';
 import { Service1Service } from 'src/Services/service1.service';
 import { WikipediaComponent } from './wikipedia/wikipedia.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { GifComponent } from './gif/gif.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -130,6 +132,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     RandomuserComponent,
     WikipediaComponent,
     RxjsComponent,
+    GifComponent,
     //ProductComponent,
     // LaptopComponent,
     // TvComponent,
@@ -144,6 +147,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
     HttpClientModule,
     ProductsModule,
     UtilityModule,
+    NgxPaginationModule,
   ],
   providers: [Service1Service,
     {

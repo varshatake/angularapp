@@ -15,7 +15,7 @@ export class AppComponent {
   isDestroy:boolean = true;
 
 
-  sub : Subscription;
+  //sub : Subscription;
   //step1 for @input() decorator 
   courses: any = ["Data Science","Automation Testing","Angular","React","Web Designer"];
   
@@ -31,23 +31,25 @@ export class AppComponent {
 
   OnDestroy(){
     this.isDestroy = false;
+    //this.sub.unsubscribe;
+  
   }
 
   ngOnInit() {
-    const sourceof = of([1,2,3]);
-    sourceof.subscribe(resof => {
-      console.log('of rxjs :',resof);
-    });
+    // const sourceof = of([1,2,3]);
+    // sourceof.subscribe(resof => {
+    //   console.log('of rxjs :',resof);
+    // });
 
-    const sourcefrom = from([1,2,3,4]);
-    sourcefrom.subscribe(resfrom => {
-      console.log('from rxjs :',resfrom);
-    });
+    // const sourcefrom = from([1,2,3,4]);
+    // sourcefrom.subscribe(resfrom => {
+    //   console.log('from rxjs :',resfrom);
+    // });
 
-    const streamVideo = interval(10);
-    streamVideo.pipe(map(data =>data * 2))
-    .subscribe(resmap => {
-      console.log('map from rxjs:',resmap);
-    });
+    // const streamVideo = interval(10);
+    // streamVideo.pipe(map(data =>data * 2))
+    // .subscribe(resmap => {
+    //   console.log('map from rxjs:',resmap);
+    // });
   }
 }
