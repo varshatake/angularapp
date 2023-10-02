@@ -19,7 +19,7 @@ export class AppComponent {
   //step1 for @input() decorator 
   courses: any = ["Data Science","Automation Testing","Angular","React","Web Designer"];
   
-  //step 5 for @output with event emmitter
+  ///step 5 for @output with event emmitter
   getDataFromChild(value) {
     console.log(value);   
    }
@@ -29,11 +29,11 @@ export class AppComponent {
     alert(val.value);
   }
 
-  OnDestroy(){
-    this.isDestroy = false;
-    //this.sub.unsubscribe;
+  // OnDestroy(){
+  //   this.isDestroy = false;
+  //   //this.sub.unsubscribe;
   
-  }
+  // }
 
   ngOnInit() {
     // const sourceof = of([1,2,3]);

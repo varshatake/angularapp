@@ -51,12 +51,6 @@ import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-//import { ProductComponent } from './product/product.component';
-import { LaptopComponent } from './product/laptop/laptop.component';
-import { TvComponent } from './product/tv/tv.component';
-import { WashingmachineComponent } from './product/washingmachine/washingmachine.component';
-import { TabletComponent } from './product/tablet/tablet.component';
-import { ProductsModule } from './products/products.module';
 import { UtilityModule } from './utility.module';
 import { PostComponent } from './post/post.component';
 import { HookComponent } from './hook/hook.component';
@@ -72,6 +66,10 @@ import { WikipediaComponent } from './wikipedia/wikipedia.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { GifComponent } from './gif/gif.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { GifPipe } from './gif.pipe';
+import { TaskdataComponent } from './taskdata/taskdata.component';
+
+//import { ProductsModule } from './products/products.module';
 
 
 @NgModule({
@@ -133,6 +131,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
     WikipediaComponent,
     RxjsComponent,
     GifComponent,
+    GifPipe,
+    TaskdataComponent,
+    // ElectronicsComponent,
+    // PowerbankComponent,
+    // SmartlightsComponent,
+    // CameraComponent,
+    // ComputerperipheralComponent,
     //ProductComponent,
     // LaptopComponent,
     // TvComponent,
@@ -145,8 +150,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ProductsModule,
     UtilityModule,
+   // ProductsModule,
     NgxPaginationModule,
   ],
   providers: [Service1Service,

@@ -13,7 +13,7 @@ export class RapidapiService {
   apiUrlMovers= 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/v2/get-movers?region=us&lang=en-US&start=0&count=6';
   constructor(private _httpClient: HttpClient) { }
 
-  GetYahooFinance() {
+  GetYahooFinance():Observable<any> {
     let headers = new HttpHeaders({
       'X-RapidAPI-Key': '9b806c102emshddc858756e4325bp182ac5jsn590f1e4b256a',
        'X-RapidAPI-Host': 'apidojo-yahoo-finance-v1.p.rapidapi.com'

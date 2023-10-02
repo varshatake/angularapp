@@ -9,7 +9,8 @@ import { RapidapiService } from 'src/Services/rapidapi.service';
 })
 export class RapidapiComponent implements OnInit {
 
-  rapidapiData;
+  rapidapiNewsData=[];
+  //rapidapiQuotes=[];
   constructor(private rapidapiService:RapidapiService) { }
 
   ngOnInit() {
@@ -19,7 +20,10 @@ export class RapidapiComponent implements OnInit {
   showapidData() {
     this.rapidapiService.GetYahooFinance().subscribe(res => {
       console.log('from rapid api', res);
-      this.rapidapiData = res;
+      this.rapidapiNewsData = res.news;
+      console.log('news data :',this.rapidapiNewsData);
+      // this.rapidapiQuotes = res.quotes;
+      // console.log('from Quotes data :',this.rapidapiQuotes);
     })
   }
 

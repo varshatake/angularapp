@@ -1,15 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { LoginComponent } from './login/login.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { ProductComponent } from './product/product.component';
-import { LaptopComponent } from './product/laptop/laptop.component';
-import { TvComponent } from './product/tv/tv.component';
-import { TabletComponent } from './product/tablet/tablet.component';
-import { WashingmachineComponent } from './product/washingmachine/washingmachine.component';
 import { AuthgaurdGuard } from './AuthGuard/authguard.guard';
 import { TodoComponent } from './todo/todo.component';
 import { PostComponent } from './post/post.component';
@@ -21,23 +16,23 @@ import { RandomuserComponent } from './randomuser/randomuser.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { WikipediaComponent } from './wikipedia/wikipedia.component';
 import { GifComponent } from './gif/gif.component';
+import { TaskdataComponent } from './taskdata/taskdata.component';
+
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent}, // localhost:4200/login
-  {path: 'home', canActivate:[AuthgaurdGuard],component: HomeComponent},
+  {path: 'home', component: HomeComponent},
+  //canActivate:[AuthgaurdGuard],
   {path: 'aboutus', component: AboutusComponent},
   {path: 'contactus', component: ContactusComponent},
   //{path: 'product', children: [  //for single component
     // { path: '', component: ProductComponent}, // localhost:4200/product/laptop
-    {path: 'product',canActivate:[AuthgaurdGuard],component:ProductComponent,children:[
-      {path: 'laptop', component: LaptopComponent},
-      { path: 'tv', component: TvComponent},
-      {path: 'tablet', component: TabletComponent},
-      {path: 'washingmachine', component: WashingmachineComponent}
-    ] },
+    {path:'product',loadChildren : './products/products.module#ProductsModule'},
+    {path:'electronics', loadChildren:'./elect/elect.module#ElectModule'},
+   // canActivate:[AuthgaurdGuard]
     {path:'post',component:PostComponent},
-    {path:'postdetails:/id',component:PostdetailsComponent},
+    {path:'postdetails/:id',component:PostdetailsComponent},
     {path: 'todo', component: TodoComponent},
     {path:'rapidapi',component:RapidapiComponent},
     {path:'rapidapiassignment',component:RapidassignmentComponent},
@@ -46,14 +41,23 @@ const routes: Routes = [
     {path:'wikipedia',component:WikipediaComponent},
     {path:'rxjs',component:RxjsComponent},
     {path:'gif',component:GifComponent},
+    {path:'taskdata',component:TaskdataComponent},
   {path: '**', component: PagenotfoundComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  // { preloadingStrategy: PreloadAllModules}
+  imports: [RouterModule.forRoot(routes,{preloadingStrategy:PreloadAllModules})],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+  /**
+   *
+   */
+  constructor() {
+    console.log('App Routing Module Called........');
+    
+  }
+ }
 
 

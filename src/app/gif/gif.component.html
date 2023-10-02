@@ -19,7 +19,7 @@
                     <img [src]="gdata.images.fixed_width.url" alt="{{gdata.title}}">
                 </li>
             </ul> -->
-            <div class="imgdiv" *ngFor="let gdata of resObject | paginate:{id:'listing_pagination', itemsPerPage: 10, currentPage: page, totalItems: totalPages}">
+            <div class="imgdiv" *ngFor="let gdata of resObject | gif:searchString | paginate:{id:'listing_pagination', itemsPerPage: 10, currentPage: page, totalItems: totalPages}">
                 <img [src]="gdata.images.fixed_width.url" alt="{{gdata.title}}">
             </div>
         </div>

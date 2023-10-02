@@ -1,14 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LaptopComponent } from '../product/laptop/laptop.component';
-import { ProductComponent } from '../product/product.component';
-import { TabletComponent } from '../product/tablet/tablet.component';
-import { TvComponent } from '../product/tv/tv.component';
-import { WashingmachineComponent } from '../product/washingmachine/washingmachine.component';
-import { RouterModule } from '@angular/router';
 import { UtilityModule } from '../utility.module';
+import { RouterModule , Routes } from '@angular/router';
+import { ProductComponent } from '../product/product.component';
+import { LaptopComponent } from '../product/laptop/laptop.component';
+import { TvComponent } from '../product/tv/tv.component';
+import { TabletComponent } from '../product/tablet/tablet.component';
+import { WashingmachineComponent } from '../product/washingmachine/washingmachine.component';
 
-
+const productsroutes : Routes = [
+  {path: '',component:ProductComponent,children:[
+    {path: 'laptop', component: LaptopComponent},
+    { path: 'tv', component: TvComponent},
+    {path: 'tablet', component: TabletComponent},
+    {path: 'washingmachine', component: WashingmachineComponent}
+  ] },
+]
 
 @NgModule({
   declarations: [
@@ -20,7 +27,7 @@ import { UtilityModule } from '../utility.module';
   ],
   imports: [
     CommonModule,
-    RouterModule,
+    RouterModule.forChild(productsroutes),
     UtilityModule,
   ]
 })
@@ -29,7 +36,7 @@ export class ProductsModule {
    *
    */
   constructor() {
-    console.log('product Module called.');
+    console.log('products Module called.');
     
     
   }

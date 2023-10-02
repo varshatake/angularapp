@@ -12,13 +12,15 @@ export class GifService {
   apikey = 'jd3PQeuBA7xplOtAWRYiUIdlYAMwIKif';
   t= '/trending';
   s= '/search';
+  
 
   constructor(private h:HttpClient) { }
 
   giphyData():Observable<any> {
     const params = new HttpParams().set('api_key',this.apikey);
 
-    return this.h.get(`${this.gifsUrl}`+ this.t , {params});
+    return this.h.get(`${this.gifsUrl}`+this.t , {params});
+    // + this.t
     }
 
   gifQuery(queryparam):Observable<any> {
@@ -26,7 +28,8 @@ export class GifService {
     .set('api_key',this.apikey)
     .set('q',queryparam);
 
-    return this.h.get(`${this.gifsUrl}` + this.s , {params});
+    return this.h.get(`${this.gifsUrl}`+this.s , {params});
+    // + this.s
 
   }
   

@@ -10,8 +10,9 @@ import { GifService } from 'src/Services/gif.service';
 export class GifComponent implements OnInit {
 
   searchString : any = '';
+  // searchAnything : any = '';
   resObject : any[];
-  resObject1 = [];
+  // resObject1 = [];
 
   page:number=1;
   totalPages :any;
@@ -33,11 +34,13 @@ export class GifComponent implements OnInit {
 
   gifQuery() {
     const text = this.searchString.queryparam;
+    // const searcharr = this.searchAnything.searchtext;
     this.gifService.gifQuery(text).subscribe((gifData:any) => {
       console.log('gifData : ',gifData);
       this.resObject = (gifData['data']);
       console.log('gif responseObject Data:',this.resObject);
       console.log('searchString queryParameter :',this.searchString);
+      // console.log('search anything :',this.searchAnything);
       this.totalPages = this.resObject.length;
     })
   }

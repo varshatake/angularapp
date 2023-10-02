@@ -1,0 +1,50 @@
+<p>taskdata works!</p>
+<h2 class="text-center">Task Manager</h2>
+
+<div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Name:*</label>
+        <input name="name" id="name" required [(ngModel)]="name" class="rounded"/>
+        <!-- class="form-control" -->
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Complete:*</label>
+        <input name="complete" id="complete" type="checkbox" required [(ngModel)]="complete" class="rounded"/>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Priority:*</label>
+        <input name="priority" id="priority" type="number" required [(ngModel)]="priority" min="1" max="5" class="rounded"/>
+    </div>
+
+    <div class="justify-content-center mt-2">
+    <button class="btn btn-success offset-2" (click)="addTask()">addTask</button>
+    <!-- <button class="btn btn-primary offset-2" (click)="updateTask()" *ngIf="!id">updateTask</button> -->
+    <button class="btn btn-secondary mx-2" (click)="clearForm()" *ngIf="!id">Reset</button>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Priority</th>
+        <th>Complete</th>
+        <th>Actions</th>
+    </tr>
+    <tbody>
+        <tr *ngFor="let dataOftask of tasks">
+            <td>{{dataOftask.id}}</td>
+            <td>{{dataOftask.name}}</td>
+            <td>{{dataOftask.priority}}</td>
+            <td>{{dataOftask.complete}}</td>
+            <td>
+                <a class="btn btn-info text-white" (click)="selectTask(tasks)">Edit</a>
+                <a class="btn btn-danger text-white mx-2" (click)="updateTask(tasks.id)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+
