@@ -2,7 +2,7 @@
 <h2 class="text-center">Task Manager</h2>
 
 <div>
-    <div class="form-group" [form-group]="showForm">
+    <div class="form-group">
         <label class="control-label col-md-2">Name:*</label>
         <input name="name" id="name" required [(ngModel)]="name" [(ngModel)]="namequery" class="rounded"/>
         <button class="btn btn-success offset-2 mx-2" (click)="searchByName()">Search</button>

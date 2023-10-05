@@ -17,14 +17,19 @@ export class TaskdataComponent implements OnInit {
   namequery : '';
   nameData : [];
 
-  showForm: any = FormGroup ;
+  //showForm: any = FormGroup ;
   constructor(private taskService: TaskdataService) { }
 
   ngOnInit() {
-    this.showForm = false;
+    //this.showForm = false;
     this.getAllTasks();
+    this.addTask();
     //this.createTask();
+    this.updateTask();
+    this.deleteTask(this._id);
     this.clearForm();
+    this.selectTask(this.tasks);
+    this.searchByName();
   }
 
   // createTask() {
@@ -86,13 +91,13 @@ export class TaskdataComponent implements OnInit {
     this.taskService.updateTask(editTask).subscribe(response => {
       response = this.getAllTasks()
       this.clearForm()
-      this.showForm = false;
+      //this.showForm = false;
       console.log('Update task :',response);
     });
   }
 
   displayShowform() {
-    this.showForm = true;
+    //this.showForm = true;
   }
 
   selectTask(task){

@@ -30,7 +30,7 @@ export class TaskdataService {
   deleteTask(_id):Observable<any>{
     let params = new HttpParams().set('id',_id);
 
-    return this.http.delete( this.ownUrl +'/tasks/', {params});
+    return this.http.delete( this.ownUrl +'tasks/', {params});
   }
 
   //UPDATE
