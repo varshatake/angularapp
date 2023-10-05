@@ -1,3 +1,4 @@
+import { NUMBER_TYPE } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { TaskdataService } from 'src/Services/taskdata.service';
@@ -10,7 +11,7 @@ import { TaskdataService } from 'src/Services/taskdata.service';
 export class TaskdataComponent implements OnInit {
 
   tasks:any;
-  _id : any;
+  id : any;
   name: any;
   complete:boolean;
   priority:number;
@@ -24,24 +25,24 @@ export class TaskdataComponent implements OnInit {
     //this.showForm = false;
     this.getAllTasks();
     this.addTask();
-    //this.createTask();
-    this.updateTask();
-    this.deleteTask(this._id);
-    this.clearForm();
+    this.createTask();
+    this.deleteTask(this.id);
     this.selectTask(this.tasks);
+    this.updateTask();
+    this.clearForm();
     this.searchByName();
   }
 
-  // createTask() {
-  //   let alltask = {
-  //     id: new Date().getTime(),
-  //     name: 'shaurya',
-  //   }
+  createTask() {
+    let alltask = {
+      id: new Date().getTime(),
+      name: 'shaurya',
+    }
 
-  //   this.taskService.create(alltask).subscribe(res => {
-  //     console.log('todo create', res);
-  //   })
-  // }
+    this.taskService.create(alltask).subscribe(res => {
+      console.log('todo create', res);
+    })
+  }
 
 
   getAllTasks(){
@@ -54,6 +55,7 @@ export class TaskdataComponent implements OnInit {
 
   addTask(){
     let newTask = {
+    //_id : new Date().getFullYear(), 
     name : this.name,
     complete: this.complete,
     priority: this.priority,
@@ -66,33 +68,22 @@ export class TaskdataComponent implements OnInit {
   }
 
   clearForm() {
-    this._id = null
+    this.id = null
     this.name = null
     this.complete = null
     this.priority = null
   }
 
-  deleteTask(_id) {
-    if(confirm('Are you sure you want to delete this task?')){
-      this.taskService.deleteTask(_id).subscribe(resp => {
-        resp = this.getAllTasks();
-        console.log('Delete task :',resp);
-      });
-    }
-  }
-
   updateTask(){
     let editTask = {
-      _id: this._id,
+      id: this.id,
     name : this.name,
     complete: this.complete,
     priority: this.priority,
     }
     this.taskService.updateTask(editTask).subscribe(response => {
-      response = this.getAllTasks()
-      this.clearForm()
-      //this.showForm = false;
-      console.log('Update task :',response);
+      //response = this.getAllTasks();
+      console.log('Updated task :',response);
     });
   }
 
@@ -101,11 +92,20 @@ export class TaskdataComponent implements OnInit {
   }
 
   selectTask(task){
-    this._id = task._id;
+    this.id = task._id;
     this.name = task.name;
     this.complete = task.complete;
     this.priority = task.priority;
 
+  }
+
+  deleteTask(id) {
+    if(confirm('Are you sure you want to delete this task?')){
+      this.taskService.deleteTask(id).subscribe(resp => {
+       // resp = this.getAllTasks();
+        console.log('After Delete task :',resp);
+      });
+    }
   }
 
 

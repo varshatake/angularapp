@@ -27,8 +27,8 @@ export class TaskdataService {
   }
 
   //DELETE
-  deleteTask(_id):Observable<any>{
-    let params = new HttpParams().set('id',_id);
+  deleteTask(id:any):Observable<any>{
+    let params = new HttpParams().set('id',id);
 
     return this.http.delete( this.ownUrl +'tasks/', {params});
   }
@@ -36,7 +36,7 @@ export class TaskdataService {
   //UPDATE
   updateTask(editTask):Observable<any> {
     let params = new HttpParams().set('edittask', editTask)
-    .set('id', editTask._id);
+    .set('id', editTask.id);
 
     return this.http.put(this.ownUrl +'tasks/', {params});
   }
