@@ -28,7 +28,7 @@ export class TaskdataComponent implements OnInit {
     this.createTask();
     this.deleteTask(this.id);
     this.selectTask(this.tasks);
-    this.updateTask();
+    this.updateTask(this.id);
     this.clearForm();
     this.searchByName();
   }
@@ -74,14 +74,13 @@ export class TaskdataComponent implements OnInit {
     this.priority = null
   }
 
-  updateTask(){
+  updateTask(id){
     let editTask = {
-      id: this.id,
     name : this.name,
     complete: this.complete,
     priority: this.priority,
     }
-    this.taskService.updateTask(editTask).subscribe(response => {
+    this.taskService.updateTask(id,editTask).subscribe(response => {
       //response = this.getAllTasks();
       console.log('Updated task :',response);
     });
@@ -92,7 +91,7 @@ export class TaskdataComponent implements OnInit {
   }
 
   selectTask(task){
-    this.id = task._id;
+    this.id = task.id;
     this.name = task.name;
     this.complete = task.complete;
     this.priority = task.priority;

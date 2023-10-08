@@ -28,17 +28,12 @@ export class TaskdataService {
 
   //DELETE
   deleteTask(id:any):Observable<any>{
-    let params = new HttpParams().set('id',id);
-
-    return this.http.delete( this.ownUrl +'tasks/', {params});
+    return this.http.delete( this.ownUrl +'tasks/', id);
   }
 
   //UPDATE
-  updateTask(editTask):Observable<any> {
-    let params = new HttpParams().set('edittask', editTask)
-    .set('id', editTask.id);
-
-    return this.http.put(this.ownUrl +'tasks/', {params});
+  updateTask(id:any ,editTask:any):Observable<any> {
+    return this.http.put(this.ownUrl +'tasks/'+ id, editTask);
   }
   
 
