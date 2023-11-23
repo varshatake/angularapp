@@ -1,6 +1,4 @@
-import { NUMBER_TYPE } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { TaskdataService } from 'src/Services/taskdata.service';
 
 @Component({
