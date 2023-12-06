@@ -4,24 +4,24 @@
 <div>
     <div class="form-group">
         <label class="control-label col-md-2">Name:*</label>
-        <input name="name" id="name" required [(ngModel)]="namequery" class="rounded"/>
+        <input name="name" id="name" required ngModel="namequery" class="rounded"/>
         <button class="btn btn-success offset-2 mx-2" (click)="searchByName()">Search</button>
         <!-- class="form-control" -->
     </div>
 
     <div class="form-group">
         <label class="control-label col-md-2">Complete:*</label>
-        <input name="complete" id="complete" type="checkbox" required [(ngModel)]="complete" class="rounded"/>
+        <input name="complete" id="complete" type="checkbox" required ngModel="complete" class="rounded"/>
     </div>
 
     <div class="form-group">
         <label class="control-label col-md-2">Priority:*</label>
-        <input name="priority" id="priority" type="number" required [(ngModel)]="priority" min="1" max="5" class="rounded"/>
+        <input name="priority" id="priority" type="number" required ngModel="priority" min="1" max="5" class="rounded"/>
     </div>
 
     <div class="justify-content-center mt-2">
     <button class="btn btn-success offset-2" (click)="addTask()">addTask</button>
-    <button class="btn btn-primary offset-2" (click)="updateTask()">updateTask</button> 
+    <button class="btn btn-primary offset-2" (click)="updateTask(id)">updateTask</button> 
     <button class="btn btn-secondary mx-2" (click)="clearForm()" *ngIf="!id">Reset</button>
     </div>
 </div>
@@ -41,8 +41,8 @@
             <td>{{dataOftask.priority}}</td>
             <td>{{dataOftask.complete}}</td>
             <td>
-                <a class="btn btn-info text-white" (click)="selectTask(task)">Edit</a>
-                <a class="btn btn-danger text-white mx-2" (click)="deleteTask(task._id)">Delete</a>
+                <a class="btn btn-info text-white" (click)="selectTask(tasks)">Edit</a>
+                <a class="btn btn-danger text-white mx-2" (click)="deleteTask(tasks._id)">Delete</a>
             </td>
         </tr>
     </tbody>
